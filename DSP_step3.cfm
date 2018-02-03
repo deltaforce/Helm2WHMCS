@@ -101,17 +101,17 @@ Show users which are <br />
 	<thead class="fixedHeader">
     	<cfoutput>
     	<tr>
-        	<th colspan="5" class="label">Records: #getUsers.recordcount#</th>
+        	<td colspan="6" >Records: #getUsers.recordcount#</td>
         </tr>
         </cfoutput>
     	<tr>
-        	<th><input type="button" id="selectAll" name="selectAll" value="Toggle All" class="btn"></th><th>UserID</th><th>Account Type</th><th>Status</th><th>Comapny Name</th><th>Client Name</th>
+        	<th><input type="button" id="selectAll" name="selectAll" value="Toggle All" class="btn btn-primary"></th><th>UserID</th><th>Account Type</th><th>Status</th><th>Comapny Name</th><th>Client Name</th>
         </tr>
     </thead>
     <tbody  class="scrollContent">
     	<cfoutput query="getUsers">
     	<tr>
-        	<td><button  data-toggle="buttons-checkbox" type="button"  class="btn userID #IIF(ListFind(session.selectedUsers, accountnumber), "'active'","''")#" id="userID" value="#accountnumber#">#IIF(ListFind(session.selectedUsers, accountnumber), "'REMOVE'","'SELECT'")#</button></td>
+        	<td><button  data-toggle="buttons-checkbox" type="button"  class="btn btn-default userID #IIF(ListFind(session.selectedUsers, accountnumber), "'active'","''")#" id="userID" value="#accountnumber#">#IIF(ListFind(session.selectedUsers, accountnumber), "'REMOVE'","'SELECT'")#</button></td>
             <td><a href="index.cfm?step=3&resellerid=#accountnumber#">#accountnumber#</a></td><td><cfif accounttype is 0>ADMIN<cfelseif accounttype is 1>Reseller<cfelseif accounttype is 2>USER</cfif></td>
             <td><cfif accountstatus is 0>ACTIVE<cfelseif accountstatus is 1>SUSPENDED<cfelseif accountstatus is 2>CANCELLED</cfif></td>
             <td>#companyname#</td>
@@ -137,7 +137,7 @@ Show users which are <br />
 $(document).ready(function() {
 	//toogle all buttons
     $('#selectAll').click(function() {
-        $('.btn.userID').each(function() {
+        $('.userID').each(function() {
             $(this).button('toggle');
 			if ($(this).hasClass('active'))
 				{

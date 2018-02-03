@@ -45,7 +45,7 @@
             	<cfset application.whmcs.Fields[fieldname] = Struct("isCustomField": "true", "ID": ID)>
             </cfloop>
             <form method="post" action="index.cfm?step=2" >
-            <table>
+            <table class="table">
             	<tr><th>Helm Field</th><th>WHMCS field</th></tr>
             	<cfloop list="#helmfields#" item="helmField">
                 	<cfoutput>
@@ -67,7 +67,7 @@
             	<div class="alert alert-error"><h4>Database Error</h4>
                 <p>"<cfoutput>#cfcatch.Message#</cfoutput>"</p>
                 <p>please check that your data sources are setup correctly.</p>
-                
+                <cfdump var="#cfcatch#">
                 </div>
             </cfcatch>
             </cftry>

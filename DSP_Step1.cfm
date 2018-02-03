@@ -1,6 +1,6 @@
 <cftry>
 <cfparam name="continue" default=true>	
-<cfadmin action="getDatasources" type="web" password="#application.railo.webadmin#" returnVariable="dataSources">
+<cfadmin action="getDatasources" type="web" password="#application.Lucee.webAdmin#" returnVariable="dataSources">
 <cfcatch>
 	<div class="alert alert-error">
 		<cfoutput>
@@ -31,7 +31,7 @@ Hashed: #hash(application.whmcs.api.password,'MD5')#</cfoutput>
 	<div class="alert alert-info">Datasource found</div>
 <cfelse>
 	<div class="alert alert-error"><strong>Datasource NOT found</strong><br />
-You need to setup the WHMCS DSN in your Railo Admin.</div>
+You need to setup the WHMCS DSN in your Lucee Admin.</div>
 	<cfset continue = false>
 </cfif>
 
@@ -43,7 +43,7 @@ You need to setup the WHMCS DSN in your Railo Admin.</div>
 	<div class="alert alert-info">Datasource found</div>
 <cfelse>
 	<div class="alert alert-error"><strong>Datasource NOT found</strong><br />
-You need to setup the HELM DSN in your Railo Admin.</div>
+You need to setup the HELM DSN in your Lucee Admin.</div>
 <cfset continue = false>
 </cfif>
 </p>
